@@ -17,8 +17,8 @@ O projeto em si é uma página inicial simples (home) com a identidade visual da
 
 ```
 ├── img/
-│   └── cinetica.png
-├── home.html
-├── home.css
+│   └── images
+├── index.html
+├── index.css
 └── README.md
 ```
