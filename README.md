@@ -10,8 +10,9 @@ O projeto é o desenvolvimento de uma página web para um delivery de pizzas da 
 - **GitHub**: hospedagem do repositório e colaboração.
 - **VS Code**: editor de código-fonte.
 - **HTML e CSS**: desenvolvimento da página.
-- **Bootstrap 5**: estilização (via CDN).
 - **Live Server** (extensão do VS Code): visualização da página em tempo real.
+- **N8N** (automação): verificação do email e envio automático para validação.
+
 
 ## Estrutura do projeto atual
 
@@ -21,6 +22,8 @@ O projeto é o desenvolvimento de uma página web para um delivery de pizzas da 
 ├── index.html
 ├── index.css
 └── README.md
+└── script.js
+
 ```
 
 ## Situação atual do projeto
@@ -28,11 +31,10 @@ O projeto é o desenvolvimento de uma página web para um delivery de pizzas da 
 - [ ] Front end:
     - [ x ] Estrutura inicial da página Home e estruturação dos códigos css.
     - [ x ] Escolha da paleta de cores.   
-    - [ ] Página de cadastro.
+    - [ x ] Página de cadastro.
     - [ ] Página de personalização da pizza.
-- [ ] Backend.
-- [ ] Integração com n8n.
-- [ ] Rodar via docker.
+- [ x ] Integração com n8n.
+- [ x ] Rodar via docker.
 
 
 

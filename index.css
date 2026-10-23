@@ -9,6 +9,7 @@
   --cinza: #000000c4;
   --amarelinho: #f0bf82;
   --marrom: #7c461b;
+  --cinza-claro: #d4d4d4;
 }
 
 *{
@@ -24,7 +25,7 @@ body {
   line-height: 1.6;   
 }
 .cabecalho {
-  position: sticky;      /* acompanha a rolagem da página */
+  position: sticky;  
   top: 0;
   z-index: 100;
   width: 100%;
@@ -42,7 +43,6 @@ body {
   justify-content: space-between;
 }
 
-/* LOGO */
 .logo {
   display: block;
   height: 64px;
@@ -69,6 +69,8 @@ body {
 
 .menu a:hover {
   background-color: rgba(90, 42, 20, 0.12);
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+  cursor: pointer;
 }
 
 /* botão de destaque */
@@ -93,11 +95,13 @@ body {
 }
 
 @media (max-width: 600px) {
-  .menu-botao {
+    .menu-botao {
     display: flex;
     flex-direction: column;
     gap: 5px;
     padding: 8px;
+    background: none;
+    border: none;
     cursor: pointer;
   }
 
@@ -109,45 +113,121 @@ body {
     transition: transform 0.3s, opacity 0.3s;
   }
 
-  /* menu fechado: altura zero */
-  .menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    align-items: stretch;
-    background-color: #f0bf82;
-    padding: 0 20px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s, padding 0.3s;
-    box-shadow: 0 6px 8px rgba(90, 42, 20, 0.2);
-  }
-
-  .menu a {
-    text-align: center;
-  }
-
-  .menu-toggle:checked ~ .menu {
-    max-height: 200px;
-    padding: 12px 20px 20px;
-  }
-
-  .menu-toggle:checked ~ .menu-botao span:nth-child(1) {
+  .menu-botao.ativo span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
-  .menu-toggle:checked ~ .menu-botao span:nth-child(2) {
+
+  .menu-botao.ativo span:nth-child(2) {
     opacity: 0;
   }
-  .menu-toggle:checked ~ .menu-botao span:nth-child(3) {
+
+  .menu-botao.ativo span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
 
-  .menu-toggle:focus-visible ~ .menu-botao {
-    outline: 2px solid var(--marrom);
-    border-radius: 6px;
+  .menu.ativo {
+    max-height: 200px;
+    padding: 12px 20px 20px;
   }
+  
+  .menu {
+    position: absolute;
+    display: flex;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background-color: var(--amarelinho);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  }
+  .menu-cadastro {
+    width: 100%;
+    text-align: center;
+  }
+}
+.overlay { 
+  display: none;
+  position: fixed; 
+  inset: 0; 
+  background: #0008;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  text-align: center;
+}
+.overlay.ativo { display: flex; }
+
+.card-cadastro{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 80px;
+  background-color: var(--branco);
+  border-radius: 20px;
+  position: relative;
+}
+.card-cadastro h2{
+  color: var(--preto);
+  font-family: var(--fonte-texto);
+  font-size: 1.5rem;
+  gap: 12px;
+  font-weight: bold;
+} 
+
+.fechar-card{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--preto);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-size: 2rem;
+}
+
+
+.card-cadastro form{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-cadastro input{
+  padding: 20px;
+  border: 1px solid var(--cinza-claro);
+  border-radius: 4px;
+  width: 80%;
+}
+
+.card-cadastro button{
+  padding: 8px;
+  background-color: var(--marrom);
+  color: var(--branco);
+  border: none;
+  border-radius: 4px;
+  width: 100px;
+}
+
+.card-cadastro button:hover{
+  background-color: var(--vermelho);
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+  cursor: pointer;
 }
 
 .container-carrossel{
@@ -306,10 +386,25 @@ body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
+.bloco img:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 @media(max-width: 600px){
   .bloco img{
     display: none;
   }
+}
+
+.revelar{
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s, transform .6s;
+}
+.revelar.ativo{
+  opacity: 1;
+  transform: none;
 }
 
 
