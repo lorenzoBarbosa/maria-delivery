@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="index.css">
         <title>Maria Delivery</title>
+        
     </head>
     <body>
         <header class="cabecalho">
@@ -13,15 +14,14 @@
                     <img class="logo" src="img/logo.png" alt="Maria Delivery - Sua pizza, seu momento">
                 </a>
 
-                <input type="checkbox" id="menu-toggle" class="menu-toggle">
-                <label for="menu-toggle" class="menu-botao" aria-label="Abrir menu">
+                <button class="menu-botao" id="menu-botao" aria-label="Abrir menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
-                </label>
+                </button>
 
                 <nav class="menu">
-                    <a href="cadastro.html" class="menu-cadastro">Cadastro</a>
+                    <a class="menu-cadastro">Cadastro</a>
                 </nav>
             </div>
         </header>
@@ -33,49 +33,49 @@
                 <p>Pizzas mais pedidas de Cachoeiro de Itapemirim!</p><hr>
                 <p>Escolha o sabor que vai deliciar seu paladar!</p>
             </div>
-            <div class="cards">
-                <div class="card">
+            <div class="cards revelar">
+                <div class="card revelar">
                     <img src="img/pizza1.jpg" alt="Imagem da pizza 1">
                     <h2>Pizza Portuguesa</h2>
                     <p>Deliciosa pizza portuguesa com queijo derretido.</p>
                 </div>
-                <div class="card">
+                <div class="card revelar">
                     <img src="img/pizza2.jpeg" alt="Imagem da pizza 2">
                     <h2>Pizza de Frango com catupiry</h2>
                     <p>Deliciosa pizza de frango com catupiry e orégano.</p>
                 </div>
-                <div class="card">
+                <div class="card revelar">
                     <img src="img/pizza3.jpeg" alt="Imagem da pizza 2">
                     <h2>Pizza de Gênova</h2>
                     <p>Clássica pizza de gênova com bastante recheio.</p>
                 </div>
-                <div class="card">
+                <div class="card revelar">
                     <img src="img/pizza4.jpeg" alt="Imagem da pizza 2">
                     <h2>Pizza Mista</h2>
                     <p>Deliciosa pizza mista com diversos ingredientes.</p>
                 </div>
-                <div class="card">
+                <div class="card revelar">
                     <img src="img/pizza5.jpeg" alt="Imagem da pizza 2">
                     <h2>Pizza Sonho de Vovó</h2>
                     <p>Nossa pizza de sabor autoral com ingredientes selecionados.</p>
                 </div>
-                <div class="card">
+                <div class="card revelar">
                     <img src="img/pizza6.jpeg" alt="Imagem da pizza 2">
                     <h2>Pizza de Bacon</h2>
                     <p>Deliciosa pizza de bacon com queijo derretido.</p>
                 </div>
-                <div class="card">
+                <div class="card revelar">
                     <img src="img/pizza7.jpeg" alt="Imagem da pizza 2">
                     <h2>Pizza Meio a Meio</h2>
                     <p>Deliciosa pizza meio a meio com dois sabores diferentes.</p>
                 </div>
-                <div class="card">
+                <div class="card revelar">
                     <img src="img/pizza1.jpg" alt="Imagem da pizza 2">
                     <h2>Pizza Portuguesa</h2>
                     <p>Deliciosa pizza portuguesa com queijo derretido.</p>
                 </div>
             </div>
-            <div class="container-texto">
+            <div class="container-texto revelar">
                 <p>Faça seu pedido agora mesmo e receba em casa!</p>
                 <hr>
                 <h2>Entre em contato conosco:</h2>
@@ -83,7 +83,7 @@
                 <p>Email: mariadelivery@gmail.com</p>
                 <hr>
             </div>
-            <div class="container-bloco">
+            <div class="container-bloco revelar">
                 <div class="bloco">
                     <div class="bloco-texto">
                         <h2>Personalise sua pizza!</h2>
@@ -100,8 +100,8 @@
                 </div>
             </div>
         </main>
-        <footer class="rodape">
-            <div class="rodape-conteudo">
+        <footer class="rodape revelar">
+            <div class="rodape-conteudo revelar">
                 <div class="about">
                     <h2>Sobre nós</h2>
                     <hr>
@@ -124,5 +124,18 @@
             
             <p>© 2026 Maria Delivery. Todos os direitos reservados.</p>
         </footer>
+        <div class="overlay" id="overlay">
+            <div class="card-cadastro">
+                <div class="fechar-card" id="fechar-card">&times;</div>
+                <h2>Cadastro</h2>
+                <form id="form-cadastro">
+                    <input type="email" placeholder="Email" id="email" required>
+                    <input type="password" placeholder="Senha" id="senha" required>
+                    <button type="submit">Cadastrar</button>
+                    <p id="mensagem"></p>
+                </form>
+            </div>
+        </div>
+        <script src="script.js"></script>
     </body>
 </html>
